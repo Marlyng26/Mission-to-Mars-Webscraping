@@ -4,8 +4,6 @@ from flask_pymongo import PyMongo
 import mars_scrape
 import os
 
-#Hideen file
-#import config
 
 #Create flask app
 app = Flask(__name__)   
@@ -32,7 +30,6 @@ def scrape():
         mars_data = mars_scrape.mars_scrape_news()
         mars_data = mars_scrape.mars_scrape_mars_image()
         mars_fact = mars_scrape.scrape_mars_facts()
-        mars_weather = mars_scrape.mars.scrape_weathers()
         scrape_mars_hemisphere= scrape_mars.scrape_mars_hemispheres()
         mars_info.update({}, mars_data, upsert=True)
 

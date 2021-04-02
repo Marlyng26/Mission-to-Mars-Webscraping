@@ -125,7 +125,6 @@ def scrape_mars_image():
         "news_title":news_title,
         "news_para":news_para,
         "featured_image_url":featured_image_url,
-        "mars_weather":mars_weather,
         "fact_table":fact_table,
         "hemisphere_images":hemisphere_image_urls
     }
