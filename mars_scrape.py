@@ -28,7 +28,7 @@ def scrape_mars_news():
     news_title = soup.find('div', class_='content_title').find('a').text
     news_para = soup.find('div', class_='article_teaser_body').text
 
-    mars_information['new_title'] = news_title
+    mars_information['news_title'] = news_title
     mars_information['news_paragraph'] = news_para
 
     return mars_information
@@ -48,7 +48,7 @@ def scrape_mars_image():
 
     soup = bs(html_image, 'html.parser')
 
-    image_url = soup.find('article')['style'].replace('background-image: url(','').replace('')[1:-1]
+    # image_url = soup.find('article')['style'].replace('background-image: url(','').replace('')[1:-1]
 
     web_url = 'https://www.jpl.nasa.gov'
     
@@ -67,7 +67,7 @@ def scrape_mars_image():
      #Weather
  ### Mars Fact
 
-    # Scrape Mars facts from https://space-facts.com/mars/
+    # Scrape Mars facts 
     url='https://space-facts.com/mars/'
     tables=pd.read_html(url)
     
@@ -82,7 +82,7 @@ def scrape_mars_image():
     ### Mars Hemispheres
 
     # Scrape Mars hemisphere title and image
-    usgs_url='https://astrogeology.usgs.gov'
+    other_url='https://astrogeology.usgs.gov'
     url='https://astrogeology.usgs.gov/search/results?q=hemisphere+enhanced&k1=target&v1=Mars'
     browser.visit(url)
     html=browser.html
@@ -102,7 +102,7 @@ def scrape_mars_image():
             title=hem.h3.text
             # Extract image url
             hem_url=hem.a['href']
-            browser.visit(usgs_url+hem_url)
+            browser.visit(other_url+hem_url)
             html=browser.html
             soup=bs(html,'html.parser')
             image_src=soup.find('li').a['href']
@@ -123,7 +123,7 @@ def scrape_mars_image():
     # Create dictionary for all info scraped from sources above
     mars_dict={
         "news_title":news_title,
-        "news_p":news_p,
+        "news_para":news_para,
         "featured_image_url":featured_image_url,
         "mars_weather":mars_weather,
         "fact_table":fact_table,
