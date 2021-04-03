@@ -64,7 +64,7 @@ def scrape_mars_image():
 
      return mars_information
 
-     #Weather
+ 
  ### Mars Fact
 
     # Scrape Mars facts 
