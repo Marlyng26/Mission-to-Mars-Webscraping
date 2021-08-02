@@ -1,1 +1,1 @@
-For this webscraping, I built a web applicaiton that scraped various websites for data realted to the Mission to Mars and display information in a single HTML page. 
+For this webscraping project, I built a web application that scraped various websites for data related to the Mission to Mars and displayed information in a single HTML page. 
